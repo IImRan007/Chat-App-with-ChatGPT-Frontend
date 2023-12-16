@@ -39,7 +39,7 @@ const Navbar = () => {
     try {
       logout();
       userDispatch({ type: "LOGOUT_USER" });
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
