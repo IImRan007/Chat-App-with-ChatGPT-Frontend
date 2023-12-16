@@ -20,10 +20,11 @@ const App = () => {
   const [conversations, setConversations] = useState(null);
   const { userState } = useContext(UserContext);
 
+  const API_URL = `https://chat-app-with-chat-gpt-backend.vercel.app/api/conversation/user`;
+  // const API_URL = `http://localhost:9000/api/conversation/user`
+
   const getConversations = async () => {
-    const response = await axios.get(
-      `http://localhost:9000/api/conversation/user/${userState?.user?._id}`
-    );
+    const response = await axios.get(`${API_URL}/${userState?.user?._id}`);
 
     if (response.data.success === true) {
       setConversations(response.data.conversation);

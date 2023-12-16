@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:9000/api/user/";
+// const API_URL = "http://localhost:9000/api/user/";
+const API_URL = `https://chat-app-with-chat-gpt-backend.vercel.app/api/user/`;
 
 // Register user
 export const register = async (userData) => {

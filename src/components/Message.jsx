@@ -11,11 +11,12 @@ const Message = () => {
 
   const { userState } = useContext(UserContext);
 
+  const API_URL = `https://chat-app-with-chat-gpt-backend.vercel.app/api/conversation`;
+  // const API_URL = `http://localhost:9000/api/conversation`
+
   const getConversation = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:9000/api/conversation/${params.id}`
-      );
+      const response = await axios.get(`${API_URL}/${params.id}`);
       setConversations(response.data.data.messages);
     } catch (error) {
       console.error("Error fetching conversation:", error.message);
@@ -38,10 +39,7 @@ const Message = () => {
         },
       ],
     };
-    const response = await axios.post(
-      `http://localhost:9000/api/conversation`,
-      data
-    );
+    const response = await axios.post(`${API_URL}`, data);
 
     console.log(response);
     if (response.data.success === true) {
